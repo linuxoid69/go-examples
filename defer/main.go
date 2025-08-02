@@ -6,6 +6,7 @@ import (
 
 func main() {
 	exampleDefer()
+    deferOrder()
 }
 
 func exampleDefer() {
@@ -17,4 +18,10 @@ func exampleDefer() {
 	foo = "bay"
 
 	fmt.Printf("Foo from end function: %s\n", foo)
+}
+
+func deferOrder() {
+    // Порядок вызова меняется
+    defer fmt.Println("1")
+    defer fmt.Println("2")
 }
