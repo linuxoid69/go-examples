@@ -5,15 +5,16 @@ import (
 )
 
 func main() {
-	exampleDefer()
-    deferOrder()
+	printDefer()
+	deferOrder()
 }
 
-func exampleDefer() {
+func printDefer() {
 	foo := "hello"
 	// defer хоть и исполняется вконце функции,
 	// но запоминает значение foo на тот момент где объявлен
 	defer fmt.Printf("Foo from deffer: %s\n", foo)
+	// defer func () {fmt.Printf("Foo from deffer: %s\n", foo)}() // имеет больший приоритет чем print
 
 	foo = "bay"
 
@@ -21,7 +22,7 @@ func exampleDefer() {
 }
 
 func deferOrder() {
-    // Порядок вызова меняется
-    defer fmt.Println("1")
-    defer fmt.Println("2")
+	// Порядок вызова меняется
+	defer fmt.Println("1")
+	defer fmt.Println("2")
 }
